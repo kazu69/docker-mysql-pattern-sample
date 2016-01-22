@@ -1,6 +1,6 @@
-# Initialize data and persistent in the docker mysql
+# Initialize data and persistent in docker mysql
 
-> This turning on the initial data in mysql database at the time of start-up container.
+> This is a sample by inserting the initial data in the mysql database at the start-up docker container.
 And it shows how to persist data.
 
 ### require
