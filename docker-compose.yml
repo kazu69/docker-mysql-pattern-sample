@@ -1,0 +1,22 @@
+storage:
+  build: storage
+mysql_server:
+  image: mysql:5.5
+  name: mysql
+  ports:
+    - '3306:3306'
+  volumes_from:
+   - storage
+  environment:
+    MYSQL_ROOT_USER: root
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: sample_db
+    MYSQL_USER: test
+    MYSQL_PASSWORD: password
+  volumes:
+    - ./mysql/init.d:/docker-entrypoint-initdb.d
+app_server:
+  build: php
+  name: php
+  links:
+    - mysql_server:mysql
